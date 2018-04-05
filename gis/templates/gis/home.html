@@ -5,5 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Home</h1>
+    {% for article in articles %}
+        {% comment %}<h3>{{ article.title }}</h3>
+         <p>{{ article.text }}</p>{% endcomment %}
+        <h3><a href="{% url 'article' article.id %}">{{ article.title }}</a></h3>
+        <p> {{ article.get_short_text }}</p>
+    {% endfor %}
 {% endblock %}

@@ -1,48 +1,61 @@
 {% extends 'gis/base.html' %}
 
 {% block title %}
-   Map
+    Map
 {% endblock %}
 
 {% block maphead %}
-   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-   <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
-   <script src="https://js.arcgis.com/4.6/"></script>
-   <script>
-    require([
-      "esri/Map",
-      "esri/views/MapView",
-      "esri/widgets/Home",
-      "esri/widgets/BasemapToggle",
-      "dojo/domReady!"
-    ], function(Map, MapView, Home, BasemapToggle) {
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.6/"></script>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/widgets/Home",
+            "esri/widgets/BasemapToggle",
+            "esri/widgets/BasemapGallery",
+            "dojo/domReady!"
+        ], function (Map, MapView, Home, BasemapToggle,BasemapGallery) {
 
-      var map = new Map({
-        basemap: "topo"
-      });
+            var map = new Map({
+                basemap: "topo"
+            });
 
-      var view = new MapView({
-        container: "viewDiv",
-        map: map,
-        zoom: 6,
-        center: [30.540364, 50.445836] // longitude, latitude
-      });
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                zoom: 6,
+                center: [30.540364, 50.445836] // longitude, latitude
+            });
 
-      var homeBtn = new Home({
-        view: view
-      });
+            var homeBtn = new Home({
+                view: view
+            });
 
-       var toggle = new BasemapToggle({
-          // 2 - Set properties
-          view: view, // view that provides access to the map's 'topo' basemap
-          nextBasemap: "hybrid" // allows for toggling to the 'hybrid' basemap
+            var toggle = new BasemapToggle({
+                // 2 - Set properties
+                view: view, // view that provides access to the map's 'topo' basemap
+                nextBasemap: "hybrid" // allows for toggling to the 'hybrid' basemap
+            });
+
+            var basemapGallery = new BasemapGallery({
+                view: view
+            });
+
+            // Add the widget to the top-right corner of the view
+
+
+            // Add the Directions widget to the top right corner of the view
+
+
+            view.ui.add(homeBtn, "top-left");
+            view.ui.add(toggle, "top-right");
+            view.ui.add(basemapGallery, {
+                position: "top-right"
+            });
         });
-
-      view.ui.add(homeBtn, "top-left");
-      view.ui.add(toggle, "top-right");
-
-    });
-  </script>
+    </script>
 {% endblock %}
 
 {% block content %}

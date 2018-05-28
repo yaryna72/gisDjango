@@ -9,13 +9,18 @@
 
     <title>{% block title %}{% endblock %}  GIS</title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS-->
     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.0.0/sketchy/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template
     <link href="starter-template.css" rel="stylesheet">
     -->
     <link href="{% static 'gis/style.css' %}"  rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    {% block maphead %}{% endblock %}
   </head>
 
   <body>
@@ -46,8 +51,8 @@
             </div>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" action="https://www.google.com/search" method="GET" name="f">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q" value="" >
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
@@ -59,9 +64,7 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Placed at the end of the document so the pages load faster
+    -->
   </body>
 </html>

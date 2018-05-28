@@ -9,6 +9,6 @@
         {% comment %}<h3>{{ article.title }}</h3>
          <p>{{ article.text }}</p>{% endcomment %}
         <h3><a href="{% url 'article' article.id %}">{{ article.title }}</a></h3>
-        <p> {{ article.get_short_text }}</p>
+        <p> {{ article.get_short_text|safe }}</p>
     {% endfor %}
 {% endblock %}
